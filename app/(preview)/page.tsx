@@ -5,7 +5,7 @@ import { useActions } from "ai/rsc";
 import { Message } from "@/components/message";
 import { useScrollToBottom } from "@/components/use-scroll-to-bottom";
 import { motion } from "framer-motion";
-import {  MasonryIcon, VercelIcon } from "@/components/icons";
+import {  GitIcon, MasonryIcon, VercelIcon } from "@/components/icons";
 import Link from "next/link";
 import { toast } from "sonner";
 
