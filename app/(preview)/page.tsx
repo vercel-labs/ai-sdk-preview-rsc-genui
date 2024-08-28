@@ -23,7 +23,7 @@ export default function Home() {
       <div className="flex flex-col justify-between gap-4">
         <div
           ref={messagesContainerRef}
-          className="flex flex-col gap-2 h-full w-dvw items-center overflow-y-scroll"
+          className="flex flex-col gap-3 h-full w-dvw items-center overflow-y-scroll"
         >
           {messages.length === 0 && (
             <motion.div className="h-[350px] px-4 w-full md:w-[500px] md:px-0 pt-20">

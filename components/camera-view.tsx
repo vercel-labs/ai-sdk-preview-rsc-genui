@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export const CameraView = () => {
   return (
-    <div className="md:max-w-[468px] max-w-[calc(100dvw-64px)] w-full pb-6">
+    <div className="md:max-w-[452px] max-w-[calc(100dvw-80px)] w-full pb-6">
       <div className="flex flex-col gap-2">
         <div className="flex flex-row gap-2">
           <motion.div

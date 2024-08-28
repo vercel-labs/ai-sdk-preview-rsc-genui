@@ -248,4 +248,11 @@ export const AI = createAI<AIState, UIState>({
   actions: {
     sendMessage,
   },
+  onSetAIState: async ({ state, done }) => {
+    "use server";
+
+    if (done) {
+      // save to database
+    }
+  },
 });

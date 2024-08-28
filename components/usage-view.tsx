@@ -3,20 +3,22 @@
 import { scaleLinear } from "d3-scale";
 import { motion } from "framer-motion";
 import { USAGES } from "@/components/data";
+import { useWindowSize } from "react-use";
 
 export const UsageView = ({
   type,
 }: {
   type: "electricity" | "gas" | "water";
 }) => {
-  const usages = USAGES[type];
+  const { width } = useWindowSize();
+  const usages = USAGES[type].slice(0, width < 768 ? 7 : 14);
   const maxUsage = Math.max(...usages.map((usage) => usage.amount));
   const usageToHeight = scaleLinear().domain([0, maxUsage]).range([0, 150]);
   const color =
     type === "electricity" ? "green" : type === "gas" ? "orange" : "blue";
 
   return (
-    <div className="md:max-w-[468px] max-w-[calc(100dvw-64px)] w-full pb-6 flex flex-col gap-2">
+    <div className="md:max-w-[452px] max-w-[calc(100dvw-80px)] w-full pb-6 flex flex-col gap-4">
       <motion.div
         className="flex flex-col"
         initial={{ opacity: 0 }}
