@@ -1,0 +1,37 @@
+{
+  "name": "ai-sdk-preview-rsc-genui",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^0.0.40",
+    "@vercel/analytics": "^1.3.1",
+    "@vercel/kv": "^2.0.0",
+    "ai": "^3.2.43",
+    "d3-scale": "^4.0.2",
+    "framer-motion": "^11.3.19",
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0",
+    "sonner": "^1.5.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/d3-scale": "^4.0.8",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
