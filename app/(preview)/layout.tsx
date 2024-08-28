@@ -2,6 +2,7 @@ import "./globals.css";
 import { Metadata } from "next";
 import { Toaster } from "sonner";
 import { AI } from "./actions";
+import { KasadaClient } from "@/utils/kasada/kasada-client";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ai-sdk-preview-rsc-genui.vercel.dev"),
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <KasadaClient />
         <Toaster position="top-center" richColors />
         <AI>{children}</AI>
       </body>
