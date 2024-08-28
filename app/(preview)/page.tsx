@@ -5,7 +5,7 @@ import { useActions } from "ai/rsc";
 import { Message } from "@/components/message";
 import { useScrollToBottom } from "@/components/use-scroll-to-bottom";
 import { motion } from "framer-motion";
-import {  GitIcon, MasonryIcon, VercelIcon } from "@/components/icons";
+import { GitIcon, MasonryIcon, VercelIcon } from "@/components/icons";
 import Link from "next/link";
 import { toast } from "sonner";
 
@@ -21,7 +21,11 @@ export default function Home() {
 
   const suggestedActions = [
     { title: "View all", label: "my cameras", action: "View all my cameras" },
-    { title: "Show me", label: "my smart home hub", action: "Show me my smart home hub" },
+    {
+      title: "Show me",
+      label: "my smart home hub",
+      action: "Show me my smart home hub",
+    },
     {
       title: "How much",
       label: "electricity have I used this month?",
@@ -79,7 +83,7 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.01 * index }}
+                transition={{ delay: 0.05 * index }}
                 key={index}
                 className={index > 1 ? "hidden sm:block" : "block"}
               >
@@ -144,6 +148,7 @@ export default function Home() {
         className="flex flex-row gap-4 items-center justify-between fixed bottom-6 text-xs "
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 1 }}
       >
         <Link
           target="_blank"

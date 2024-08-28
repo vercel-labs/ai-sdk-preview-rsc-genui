@@ -5,7 +5,7 @@ import { AI } from "./actions";
 import { KasadaClient } from "@/utils/kasada/kasada-client";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ai-sdk-preview-rsc-genui.vercel.dev"),
+  metadataBase: new URL("https://ai-sdk-preview-rsc-genui.vercel.app"),
   title: "Generative User Interfaces Preview",
   description: "Generative UI with React Server Components and Vercel AI SDK",
 };
