@@ -19,8 +19,8 @@ export default function Home() {
     useScrollToBottom<HTMLDivElement>();
 
   const suggestedActions = [
-    { title: "Show me", label: "my cameras", action: "Show me the cameras" },
-    { title: "Show me", label: "my smart home hub", action: "Show me the hub" },
+    { title: "Show me", label: "my cameras", action: "Show me my cameras" },
+    { title: "Show me", label: "my smart home hub", action: "Show me my smart home hub" },
     {
       title: "How much",
       label: "electricity have I used this month?",
