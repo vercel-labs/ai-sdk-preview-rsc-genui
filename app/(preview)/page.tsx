@@ -80,6 +80,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.01 * index }}
                 key={index}
+                className={index > 1 ? "hidden sm:block" : "block"}
               >
                 <button
                   onClick={async () => {
@@ -98,7 +99,7 @@ export default function Home() {
                   }}
                   className="w-full text-left border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-300 rounded-md p-2 text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors flex flex-col"
                 >
-                  <span className="font-semibold">{action.title}</span>
+                  <span className="font-medium sm:font-semibold">{action.title}</span>
                   <span className="text-zinc-600 dark:text-zinc-400">
                     {action.label}
                   </span>
