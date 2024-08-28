@@ -18,6 +18,21 @@ export default function Home() {
   const [messagesContainerRef, messagesEndRef] =
     useScrollToBottom<HTMLDivElement>();
 
+  const suggestedActions = [
+    { title: "Show me", label: "my cameras", action: "Show me my cameras" },
+    { title: "Show me", label: "my smart home hub", action: "Show me my smart home hub" },
+    {
+      title: "How much",
+      label: "electricity have I used this month?",
+      action: "Show electricity usage",
+    },
+    {
+      title: "How much",
+      label: "water have I used this month?",
+      action: "Show water usage",
+    },
+  ];
+
   return (
     <div className="flex flex-row justify-center pb-20 h-dvh bg-white dark:bg-zinc-900">
       <div className="flex flex-col justify-between gap-4">
@@ -55,6 +70,41 @@ export default function Home() {
           )}
           {messages.map((message) => message)}
           <div ref={messagesEndRef} />
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-2 w-full px-4 md:px-0 mx-auto md:max-w-[500px] mb-4">
+          {messages.length === 0 &&
+            suggestedActions.map((action, index) => (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.01 * index }}
+                key={index}
+              >
+                <button
+                  onClick={async () => {
+                    setMessages((messages) => [
+                      ...messages,
+                      <Message
+                        key={messages.length}
+                        role="user"
+                        content={action.action}
+                      />,
+                    ]);
+                    const response: ReactNode = await sendMessage(
+                      action.action,
+                    );
+                    setMessages((messages) => [...messages, response]);
+                  }}
+                  className="w-full text-left border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-300 rounded-md p-2 text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors flex flex-col"
+                >
+                  <span className="font-semibold">{action.title}</span>
+                  <span className="text-zinc-600 dark:text-zinc-400">
+                    {action.label}
+                  </span>
+                </button>
+              </motion.div>
+            ))}
         </div>
 
         <form
