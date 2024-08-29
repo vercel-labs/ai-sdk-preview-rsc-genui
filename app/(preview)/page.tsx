@@ -97,7 +97,7 @@ export default function Home() {
                     );
                     setMessages((messages) => [...messages, response]);
                   }}
-                  className="w-full text-left border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-300 rounded-md p-2 text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors flex flex-col"
+                  className="w-full text-left border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-300 rounded-lg p-2 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors flex flex-col"
                 >
                   <span className="font-medium">{action.title}</span>
                   <span className="text-zinc-500 dark:text-zinc-400">
