@@ -18,10 +18,9 @@
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
-    "react-markdown": "^9.0.1",
     "react-use": "^17.5.1",
-    "remark-gfm": "^4.0.0",
     "sonner": "^1.5.0",
+    "streamdown": "^1.6.7",
     "zod": "^3.23.8"
   },
   "devDependencies": {
