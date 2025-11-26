@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { BotIcon, UserIcon } from "./icons";
 import { ReactNode } from "react";
 import { StreamableValue, useStreamableValue } from "ai/rsc";
-import { Markdown } from "./markdown";
+import { Streamdown } from "streamdown";
 
 export const TextStreamMessage = ({
   content,
@@ -25,7 +25,7 @@ export const TextStreamMessage = ({
 
       <div className="flex flex-col gap-1 w-full">
         <div className="text-zinc-800 dark:text-zinc-300 flex flex-col gap-4">
-          <Markdown>{text}</Markdown>
+          <Streamdown>{text}</Streamdown>
         </div>
       </div>
     </motion.div>
