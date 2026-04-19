@@ -1,5 +1,6 @@
 import { Message, TextStreamMessage } from "@/components/message";
-import { openai } from "@ai-sdk/openai";
+import { createOpenAI } from "@ai-sdk/openai";
+import { getVercelOidcToken } from "@vercel/functions/oidc";
 import { CoreMessage, generateId } from "ai";
 import {
   createAI,
@@ -7,6 +8,7 @@ import {
   getMutableAIState,
   streamUI,
 } from "ai/rsc";
+import { checkBotId } from "botid/server";
 import { ReactNode } from "react";
 import { z } from "zod";
 import { CameraView } from "@/components/camera-view";
@@ -34,6 +36,16 @@ let hub: Hub = {
 
 const sendMessage = async (message: string) => {
   "use server";
+
+  const { isBot } = await checkBotId();
+  if (isBot) {
+    throw new Error("Access denied");
+  }
+
+  const openai = createOpenAI({
+    baseURL: "https://ai-gateway.vercel.sh/v1",
+    apiKey: await getVercelOidcToken(),
+  });
 
   const messages = getMutableAIState<typeof AI>("messages");
 

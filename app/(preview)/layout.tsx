@@ -2,7 +2,14 @@ import "./globals.css";
 import { Metadata } from "next";
 import { Toaster } from "sonner";
 import { AI } from "./actions";
-import { KasadaClient } from "@/utils/kasada/kasada-client";
+import { BotIdClient } from "botid/client";
+
+const protectedRoutes = [
+  {
+    path: "/",
+    method: "POST",
+  },
+];
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ai-sdk-preview-rsc-genui.vercel.app"),
@@ -17,8 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <BotIdClient protect={protectedRoutes} />
+      </head>
       <body>
-        <KasadaClient />
         <Toaster position="top-center" richColors />
         <AI>{children}</AI>
       </body>
